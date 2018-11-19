@@ -1,7 +1,9 @@
 package com.oliver.database.mapper;
 
 import com.oliver.database.entity.OrderEntity;
+import org.springframework.stereotype.Repository;
 
+@Repository("OrderEntityMapper")
 public interface OrderEntityMapper {
     int deleteByPrimaryKey(Long orderId);
 

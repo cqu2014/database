@@ -29,4 +29,7 @@
 </p>
 
 4. 配置mybatis-generator的配置文件generatorConfig.xml
+
+#配置mybatis的xml路径
+mybatis.mapper-locations: classpath:mybatis/*.xml
     
