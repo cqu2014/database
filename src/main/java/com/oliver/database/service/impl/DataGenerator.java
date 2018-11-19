@@ -6,6 +6,7 @@ import com.oliver.database.service.IOrderService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.Random;
 
 /**
  * @Author Oliver Wang
@@ -19,16 +20,20 @@ public class DataGenerator {
     IOrderService iOrderService;
 
     public void generateData(int nums){
+        Random random = new Random();
         while(nums-- >0){
-            OrderEntity orderEntity = new OrderEntity();
-            OrderItemEntity orderItemEntity = new OrderItemEntity();
+            long orderId = random.nextInt(10000);
 
+            OrderEntity orderEntity = new OrderEntity();
+            orderEntity.setOrderId(orderId);
             orderEntity.setUserId(100000-nums);
             orderEntity.setStatus("Waiting for paying");
             iOrderService.addOrder(orderEntity);
 
-            orderItemEntity.setOrderId(100000L-nums);
+            OrderItemEntity orderItemEntity = new OrderItemEntity();
+            orderItemEntity.setOrderId(orderId);
             orderItemEntity.setUserId(orderEntity.getUserId());
+            iOrderService.addOrderItem(orderItemEntity);
         }
     }
 }

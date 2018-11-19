@@ -20,10 +20,8 @@
     where order_id = #{orderId,jdbcType=BIGINT}
   </delete>
   <insert id="insert"  parameterType="com.oliver.database.entity.OrderEntity" >
-    insert into t_order (order_id, user_id, status
-      )
-    values (#{orderId,jdbcType=BIGINT}, #{userId,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}
-      )
+    insert into t_order(order_id, user_id, status)
+    values (#{orderId,jdbcType=BIGINT}, #{userId,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.oliver.database.entity.OrderEntity" >
     insert into t_order
